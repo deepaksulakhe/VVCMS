@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="shortcut icon" href="https://w7.pngwing.com/pngs/974/340/png-transparent-student-square-academic-cap-graduation-ceremony-hat-bachelor-cap-mortarboard-illustration-angle-furniture-rectangle-thumbnail.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            background-color: #0c2340;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 350px;
+            text-align: center;
+        }
+        .tabs {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 10px;
+        }
+        .tab {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+        .form-box {
+            display: flex;
+            flex-direction: column;
+        }
+        input {
+            margin: 10px 0;
+            padding: 8px;
+            border: none;
+            border-radius: 4px;
+        }
+        .password-box {
+            display: flex;
+            align-items: center;
+        }
+        .toggle-password {
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        .captcha-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: white;
+            color: black;
+            padding: 5px;
+            border-radius: 4px;
+        }
+        .login-btn {
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .forgot-password, .register {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="tabs">
+            <button class="tab active">State Admin</button>
+            <button class="tab">University</button>
+            <button class="tab">College/PG Center</button>
+            <button class="tab active">Student</button>
+            <button class="tab">KSOU Reg Centre</button>
+        </div>
+        <div class="form-box">
+            <h2>Login</h2>
+            <label>Username</label>
+            <input type="text" id="username" placeholder="Enter Username">
+            
+            <label>Password</label>
+            <div class="password-box">
+                <input type="password" id="password" placeholder="Enter Password">
+                <span class="toggle-password" onclick="togglePassword()">👁️</span>
+            </div>
+            
+            <label>Enter Captcha</label>
+            <div class="captcha-box">
+                <span id="captcha">58399</span>
+                <button onclick="refreshCaptcha()">🔄</button>
+            </div>
+            <input type="text" id="captcha-input" placeholder="Enter Captcha">
+            
+            <button class="login-btn"> <a href="dashboard.html"> Log In</a></button>
+            <p class="forgot-password">Forgot Password? <a href="#">Click Here</a></p>
+            <a class="register">New Candidate Registration?</a>
+        </div>
+    </div>
+    <script>
+        function togglePassword() {
+            var passwordField = document.getElementById("password");
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+            } else {
+                passwordField.type = "password";
+            }
+        }
+
+        function refreshCaptcha() {
+            var captcha = Math.floor(10000 + Math.random() * 90000);
+            document.getElementById("captcha").innerText = captcha;
+            
+        }
+    </script>
+</body>
+</html>
